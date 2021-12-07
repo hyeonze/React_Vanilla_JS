@@ -1,0 +1,92 @@
+@import url(common.css);
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#wrap {
+    position: relative;
+    width: 80%;
+    height: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 54px;
+}
+
+nav .logo {
+    padding-bottom: 5px;
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+}
+
+nav .logo i {
+    margin-right: 46px;
+    font-size: 30px;
+}
+
+nav .logo i:after {
+    content: "";
+    position: relative;
+    left: 23px;
+    top: 3px;
+    display: inline-block;
+    width: 2px;
+    height: 28px;
+    background: #000;
+}
+
+nav .search_box {
+    position: relative;
+    width: 288px;
+    height: 38px;
+    background: #fafafa;
+    border: 1px solid #dbdbdb;
+    text-align: center;
+}
+
+nav .search_box input{
+    width: 100%;
+    height: 100%;
+}
+
+nav .search_box i{
+    position: absolute;
+    left: 108px;
+    top: 10px;
+    color: #a7a7a7;
+}
+
+nav .btns {
+    display: flex;
+    align-items: flex-end;
+}
+
+nav .btns:after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    right: 85px;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #f00;
+}
+
+nav .btns img {
+    width: 32px;
+    height: 32px;
+    margin-left: 35px;
+}
+
+main {
+    display: none;
+}
