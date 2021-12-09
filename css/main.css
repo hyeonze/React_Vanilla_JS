@@ -124,7 +124,7 @@ main .feeds{
     position: absolute;
     top: 77px;
     width: 60%;
-    height: 1147px;
+    /* height: 1147px; */
     background: #fff;
 }
 
@@ -153,6 +153,10 @@ main .feeds .top_menu > span > img{
     height: 42px;
     border-radius: 50%;
     margin-right: 20px;
+}
+
+article {
+    height: 100%;
 }
 
 .feeds > article > img{
@@ -203,10 +207,27 @@ main .feeds .comments span:first-child {
     font-weight: bold;
 }
 
-main .feeds .comments i {
+main .feeds .comments i.circles {
+    display: none;
+}
+
+main .feeds .comments span:hover i.circles {
+    display: inline-block;
+}
+
+main .feeds .comments i.hearts {
+    color: #a3a3a3;
     position: absolute;
     right: 20px;
-    bottom: 115px;
+    transition: color 1s;
+}
+
+main .feeds .comments i.red {
+    color: #f00;
+}
+
+main .feeds .comments i.fa-times-circle{
+    margin-left: 5px;
     color: #a3a3a3;
 }
 
@@ -215,7 +236,7 @@ main .feeds .add_comments {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    bottom: 0;
+    bottom: -62px;
     width: 100%;
     height: 62px;
     background: #fff;
@@ -379,6 +400,7 @@ main .main-right .recommended {
 
 .recommended ul li div {
     position: relative;
+    width: 100%;
 }
 
 .recommended ul li div span {
@@ -397,7 +419,7 @@ main .main-right .recommended {
 }
 
 .recommended ul li div span:last-child {
-    left: 190px;
+    right: -83px;
     top: -15px;
     color: #3e99ed;
 }
