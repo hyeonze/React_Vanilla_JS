@@ -41,28 +41,25 @@ window.onload = function() {
         filteredList.appendChild(filteredOne);//붙이기
       };
 
-    searchInput.addEventListener("keyup", () => {
-        // 초기화
+    const openSearchWindow = () => {
+    // 초기화
         filteredList.innerHTML = "";
         resultContainer.style.display = "none";
 
         if (searchInput.value) { // input 값이 있다면,
-          const filteredAccount = accountArray.filter((x) => searchFunc(x.id)); // 인풋값을 id에 포함한 객체만 남은 배열
-          if (filteredAccount) { // filteredAccout 배열이 있다면,
-            filteredAccount.forEach((acc) => showFilteredAccount(acc)); // 해당객체들을 li에 추가
-          }
+            const filteredAccount = accountArray.filter((x) => searchFunc(x.id)); // 인풋값을 id에 포함한 객체만 남은 배열
+            if (filteredAccount) { // filteredAccout 배열이 있다면,
+                filteredAccount.forEach((acc) => showFilteredAccount(acc)); // 해당객체들을 li에 추가
+            }
         }
-      });
+    }
 
     // focusout시, 검색 결과 사라지기
-    searchInput.addEventListener("focusout", () => {
+    const closeSearchWindow = () => {
         const containerCap = document.querySelector(".suggestions_cap");
         resultContainer.style.display = "none";
         containerCap.style.display = "none";
-    });
-
-
-
+    }
 
     // 프로필버튼
     const activateProfile = (e) => profileMenu.classList.toggle('on');
@@ -106,43 +103,11 @@ window.onload = function() {
         if(eventClassName === 'input_upload' && event.keyCode === 13) addComment(document.createElement('span'));
     }
 
+    searchInput.addEventListener("input", openSearchWindow);
+    searchInput.addEventListener("focusout", closeSearchWindow);
     btnUpload.addEventListener("click", handleComment);
     inputUpload.addEventListener("keyup", handleComment);
     inputUpload.addEventListener("keydown", activateBtn);
     comments.addEventListener("click", modifyCommentStatus);
     profileBtn.addEventListener("click", activateProfile);
 }
-
-// 리팩토링전
-// window.onload = function() {
-//     let body = document.querySelector('body');
-//     let inputUpload = document.querySelector('.input_upload');
-//     let btnUpload = document.querySelector('.btn_upload');
-//     let contentFlag = false;
-//     let comments = document.querySelector('.comments');
-
-//     const addComment = (el) => {
-//         el.innerHTML = `<strong>username </strong>${inputUpload.value}<small> 방금전</small>`;
-//         if (contentFlag) {
-//             comments.appendChild(el);
-//         }
-//     }
-
-//     inputUpload.addEventListener("keyup", function() {
-//         if (inputUpload.value) {
-//             btnUpload.style.color = '#3e99ed';
-//             contentFlag = true;
-//         } else {
-//             btnUpload.style.color = '#c5e2fa';
-//             contentFlag = false;
-//         }
-//     });
-
-//     btnUpload.addEventListener("click", function() {
-//         addComment(document.createElement('span'));
-//     });
-
-//     inputUpload.addEventListener("keyup", function(e) {
-//         if (e.keyCode === 13) addComment(document.createElement('span'));
-//     });
-// }
